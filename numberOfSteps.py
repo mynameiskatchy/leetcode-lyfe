@@ -38,15 +38,59 @@ Constraints:
 """
 
 class Solution(object):
+    
+    def __init__(self, input):
+        self.input = input
+    
     def numberOfSteps (self, num):
         """
         :type num: int
         :rtype: int
         """
 
+        n_steps = 0
+
+        if num == 0:
+            return n_steps
+        elif num % 2 == 0:
+            n_steps += 1
+            return self.numberOfSteps(num/2)
+        else:
+            n_steps -= 1
+            return self.numberOfSteps(num-1)
+
         
 
 
+
 if __name__ == "__main__":
+
+    in1, out1 = 14, 6
+    in2, out2 = 8, 4
+    in3, out3 = 123, 12
+
+    def numberOfSteps(num):
+        """
+        :type num: int
+        :rtype: int
+        """
+
+        n_steps = 0
+
+        # Using Recursion
+        if num == 0:
+            return n_steps
+        elif num%2 == 0:
+            n_steps = 1 + numberOfSteps(num/2)
+            return n_steps
+        else:
+            n_steps = 1 + (numberOfSteps(num-1))
+            return n_steps
+
+    print(numberOfSteps(in1))
+    print(numberOfSteps(in2))
+    print(numberOfSteps(in3))
+    
+    print('Hello Word')
 
     
