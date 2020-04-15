@@ -39,27 +39,39 @@ Constraints:
 
 class Solution(object):
     
-    def __init__(self, input):
-        self.input = input
-    
-    def numberOfSteps (self, num):
+    def numberOfSteps_recursion (self, num):
         """
         :type num: int
         :rtype: int
         """
 
+        # Using recursion
         n_steps = 0
 
         if num == 0:
             return n_steps
-        elif num % 2 == 0:
-            n_steps += 1
-            return self.numberOfSteps(num/2)
+        elif ((num % 2) == 0):
+            return 1 + self.numberOfSteps_recursion(num/2)
         else:
-            n_steps -= 1
-            return self.numberOfSteps(num-1)
+            return 1 + self.numberOfSteps_recursion(num-1)
 
-        
+        # Using loop
+        def numberOfSteps_loop(self, num):
+            """
+            :type num: int
+            :rtype: int
+            """
+
+            counter = 0
+
+            while (num > 0):
+                if (num % 2) == 0:
+                    num /= 2
+                else:
+                    num -= 1
+                counter += 1
+
+            return counter
 
 
 
@@ -87,6 +99,10 @@ if __name__ == "__main__":
             n_steps = 1 + (numberOfSteps(num-1))
             return n_steps
 
+
+
+
+    # Tests
     print(numberOfSteps(in1))
     print(numberOfSteps(in2))
     print(numberOfSteps(in3))
