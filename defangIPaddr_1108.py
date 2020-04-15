@@ -28,4 +28,16 @@ class Solution(object):
         """
 
 if __name__ == "__main__":
+    address1 = "1.1.1.1"
+    address2 = "255.100.50.0"
+
+    a = Solution(address1)
+    b = Solution(address2)
+    
+    a.defangIPaddr(a)
+
+    s = ['[{}]'.format('.') if c == '.' else c for c in address2]
+    ''.join(s)
+
+    
     pass
