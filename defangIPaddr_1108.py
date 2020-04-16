@@ -22,7 +22,7 @@ The given address is a valid IPv4 address.
 
 class Solution(object):
 
-    def defangIPaddr(self, address):
+    def defangIPaddr_listcomprehension(self, address):
         """
         :type address: str
         :rtype: str
@@ -34,6 +34,10 @@ class Solution(object):
         s = ['[{}]'.format('.') if c == '.' else c for c in address2]
         return ''.join(s)
 
+    def defangIPaddr_recursion(self, address):
+        
+        return
+
 
 if __name__ == "__main__":
     address1, output1 = "1.1.1.1", "1[.]1[.]1[.]1"
@@ -42,9 +46,9 @@ if __name__ == "__main__":
     a = Solution(address1)
     b = Solution(address2)
     
-    Solution().defangIPaddr(a)
-
     s = ['[{}]'.format('.') if c == '.' else c for c in address2]
     ''.join(s)
 
+    Solution().defangIPaddr_listcomprehension(address1)
+    Solution().defangIPaddr_listcomprehension(address2)
     pass
