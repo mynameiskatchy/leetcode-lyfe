@@ -7,3 +7,5 @@ To record my leetcode progress
 April 2020
 1342. Number of Steps to Reduce a Number to Zero (numberOfSteps)
 1108. Defanging an IP Address (defangIPaddr)
+771. Jewels and Stones
+1313. Decompress Run-Length Encoded List
