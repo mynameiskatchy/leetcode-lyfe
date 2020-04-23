@@ -1,5 +1,8 @@
 """
+======================
 771. Jewels and Stones
+numJewelsInStones()
+======================
 
 
 You're given strings J representing the types of stones that are jewels, and S representing the stones you have.  

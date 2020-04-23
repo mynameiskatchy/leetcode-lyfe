@@ -1,5 +1,8 @@
 """
+========================================
 1313. Decompress Run-Length Encoded List
+decompressRLElist()
+========================================
 
 We are given a list nums of integers representing a list compressed with run-length encoding.
 
@@ -68,3 +71,12 @@ if __name__ == "__main__":
     print(c)
 
     pass      
+
+
+
+
+
+
+""" Resources
+    https://thispointer.com/python-how-to-create-a-list-and-initialize-with-same-values/
+"""
