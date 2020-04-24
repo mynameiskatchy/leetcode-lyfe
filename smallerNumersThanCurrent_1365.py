@@ -4,7 +4,9 @@
 smallerNumbersThanCurrent()
 ==========================================================
 
-Given the array nums, for each nums[i] find out how many numbers in the array are smaller than it. That is, for each nums[i] you have to count the number of valid j's such that j != i and nums[j] < nums[i].
+Given the array nums, for each nums[i] find out how many numbers in the array are smaller than it. 
+That is, for each nums[i] you have to count the number of valid j's such that 
+j != i and nums[j] < nums[i].
 
 Return the answer in an array.
 
@@ -41,6 +43,25 @@ class Solution(object):
         :type nums: List[int]
         :rtype: List[int]
         """
+        count_smaller_list = []
+        new_nums = nums[:]
+        
+        for i, val in enumerate(nums):
+            bigger = new_nums.pop(i)   # remove val of interest (but not necessary)
+            small_nums = [num for num in new_nums if num < bigger]   # filter with list comprehension
+            count = small_nums.__len__()
+            count_smaller_list.append(count)
+            new_nums = nums[:]   # reset nums
+
+        return count_smaller_list
 
 if __name__ == "__main__":
-    pass
+    in1, out1 = [8, 1, 2, 2, 3], [4, 0, 1, 1, 3]
+    in2, out2 = [6, 5, 4, 8], [2, 1, 0, 3]
+
+    s = Solution()
+    a = s.smallerNumbersThanCurrent(in1)
+    b = s.smallerNumbersThanCurrent(in2)
+
+    print(a)
+    print(b)
