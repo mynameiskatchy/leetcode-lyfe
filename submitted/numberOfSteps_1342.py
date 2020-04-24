@@ -45,6 +45,9 @@ class Solution(object):
         """
         :type num: int
         :rtype: int
+
+        Runtime: 16 ms, faster than 75.53% of Python online submissions for Number of Steps to Reduce a Number to Zero.
+        Memory Usage: 12.7 MB, less than 100.00% of Python online submissions for Number of Steps to Reduce a Number to Zero
         """
 
         # Using recursion
