@@ -42,6 +42,35 @@ class Solution(object):
         """
         :type nums: List[int]
         :rtype: List[int]
+
+        Runtime: 44 ms, faster than 78.53% of Python online submissions for How Many Numbers Are Smaller Than the Current Number.
+        Memory Usage: 13.1 MB, less than 100.00% of Python online submissions for How Many Numbers Are Smaller Than the Current Number.
+        """
+        sorted_nums = sorted(nums)
+        sorted_nums.sort(reverse=True)
+        count_dict = {}
+        count_list = []
+        len = nums.__len__()
+
+        for i in range(len):
+            if sorted_nums[i:i+1] == sorted_nums[i+1:i+2]:   # check if dupe
+                continue
+            else:   # count if not a dupe
+                count_dict[sorted_nums[i]] = len - (i+1)
+
+        for i, val in enumerate(nums):
+            count_list.append(count_dict[val])
+
+        return count_list
+
+
+    def smallerNumbersThanCurrent_method1(self, nums):
+        """
+        :type nums: List[int]
+        :rtype: List[int]
+
+        Runtime: 228 ms, faster than 45.08% of Python online submissions for How Many Numbers Are Smaller Than the Current Number.
+        Memory Usage: 12.8 MB, less than 100.00% of Python online submissions for How Many Numbers Are Smaller Than the Current Number.
         """
         count_smaller_list = []
         new_nums = nums[:]
@@ -65,3 +94,8 @@ if __name__ == "__main__":
 
     print(a)
     print(b)
+
+
+""" Resources
+    https://www.digitalocean.com/community/tutorials/how-to-use-break-continue-and-pass-statements-when-working-with-loops-in-python-3
+"""
