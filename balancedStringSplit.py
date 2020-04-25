@@ -1,8 +1,9 @@
 """
-========================================
+==================================================================
 1221. Split a String in Balanced Strings
 balancedStringSplit()
-========================================
+<https://leetcode.com/problems/split-a-string-in-balanced-strings/>
+===================================================================
 
 Balanced strings are those who have equal quantity of 'L' and 'R' characters.
 Given a balanced string s split it in the maximum amount of balanced strings.
@@ -55,10 +56,10 @@ if __name__ == "__main__":
     in4, out4 = "RLRRRLLRLL", 2
 
     s = Solution()
-    a = s.findNumbers(in1)
-    b = s.findNumbers(in2)
-    c = s.findNumbers(in3)
-    d = s.findNumbers(in4)
+    a = s.balancedStringSplit(in1)
+    b = s.balancedStringSplit(in2)
+    c = s.balancedStringSplit(in3)
+    d = s.balancedStringSplit(in4)
 
     print(a)
     print(b)
