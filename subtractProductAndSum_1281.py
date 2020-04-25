@@ -4,7 +4,8 @@
 subtractProductAndSum()
 ==========================================================
 
-Given an integer number n, return the difference between the product of its digits and the sum of its digits.
+Given an integer number n, return the difference 
+between the product of its digits and the sum of its digits.
  
 Example 1:
 ----------
@@ -35,8 +36,19 @@ class Solution(object):
         """
         :type n: int
         :rtype: int
+
+        Runtime: 12 ms, faster than 91.89% of Python online submissions for Subtract the Product and Sum of Digits of an Integer.
+        Memory Usage: 12.8 MB, less than 100.00% of Python online submissions for Subtract the Product and Sum of Digits of an Integer.
         """
-        return
+        nums = [int(x) for x in str(n)]
+        prod_nums = 1
+        sum_nums = 0
+        
+        for i in nums:
+            prod_nums *= i
+            sum_nums += i
+
+        return prod_nums - sum_nums
 
 if __name__ == "__main__":
     in1, out1 = 234, 15
