@@ -1,8 +1,9 @@
 """
-============================================
+=======================================================================
 1389. Create Target Array in the Given Order
 createTargetArray()
-============================================
+<https://leetcode.com/problems/create-target-array-in-the-given-order/>
+=======================================================================
 
 Given two arrays of integers nums and index. Your task is to create target array under the following rules:
 
@@ -69,9 +70,9 @@ if __name__ == "__main__":
     nums3, index3, output3 = [1], [0], [1]
 
     s = Solution()
-    a = s.findNumbers(nums1, index1)
-    b = s.findNumbers(nums2, index2)
-    c = s.findNumbers(nums3, index3)
+    a = s.createTargetArray(nums1, index1)
+    b = s.createTargetArray(nums2, index2)
+    c = s.createTargetArray(nums3, index3)
 
     print(a)
     print(b)
