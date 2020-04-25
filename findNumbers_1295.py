@@ -38,13 +38,22 @@ class Solution(object):
         """
         :type nums: List[int]
         :rtype: int
+
+        Runtime: 36 ms, faster than 89.19% of Python online submissions for Find Numbers with Even Number of Digits.
+        Memory Usage: 12.8 MB, less than 100.00% of Python online submissions for Find Numbers with Even Number of Digits.
         """
 
-        return 
+        even_digits = []
+
+        for i in nums:
+            if len(str(i)) % 2 == 0:
+                even_digits.append(i)
+
+        return even_digits.__len__()
 
 if __name__ == "__main__":
-    in1, out1 = [8, 1, 2, 2, 3], [4, 0, 1, 1, 3]
-    in2, out2 = [6, 5, 4, 8], [2, 1, 0, 3]
+    in1, out1 = [12, 345, 2, 6, 7896], 2
+    in2, out2 = [555, 901, 482, 1771], 1
 
     s = Solution()
     a = s.findNumbers(in1)
