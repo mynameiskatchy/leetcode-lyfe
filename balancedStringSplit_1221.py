@@ -1,8 +1,9 @@
 """
-========================================
+==================================================================
 1221. Split a String in Balanced Strings
 balancedStringSplit()
-========================================
+<https://leetcode.com/problems/split-a-string-in-balanced-strings/>
+===================================================================
 
 Balanced strings are those who have equal quantity of 'L' and 'R' characters.
 Given a balanced string s split it in the maximum amount of balanced strings.
@@ -40,13 +41,52 @@ s[i] = 'L' or 'R'
 """
 
 class Solution(object):
+
     def balancedStringSplit(self, s):
         """
         :type s: str
         :rtype: int
         """
 
-        return
+        count = {
+            'L': 0,
+            'R': 0,
+            'n': 0
+        }
+
+        for i in s:
+            count[i] += 1
+
+            if count['L'] == count['R']:
+                count['n'] += 1
+
+        return count['n']
+
+    def balancedStringSplit_attempt1(self, s):
+        """
+        :type s: str
+        :rtype: int
+
+        Runtime: 16 ms, faster than 83.84% of Python online submissions for Split a String in Balanced Strings.
+        Memory Usage: 12.7 MB, less than 100.00% of Python online submissions for Split a String in Balanced Strings.
+        """
+        l = 0   # number of L's
+        r = 0   # number of R's
+        n = 0   # number of substrings
+
+        for i in s:
+            if i == 'L':
+                l += 1
+            else:
+                r += 1
+
+            if l == r:
+                n += 1
+                l = 0
+                r = 0
+        
+        return n
+
 
 if __name__ == "__main__":
     in1, out1 = "RLRRLLRLRL", 4
@@ -55,13 +95,15 @@ if __name__ == "__main__":
     in4, out4 = "RLRRRLLRLL", 2
 
     s = Solution()
-    a = s.findNumbers(in1)
-    b = s.findNumbers(in2)
-    c = s.findNumbers(in3)
-    d = s.findNumbers(in4)
+    a = s.balancedStringSplit(in1)
+    b = s.balancedStringSplit(in2)
+    c = s.balancedStringSplit(in3)
+    d = s.balancedStringSplit(in4)
 
     print(a)
     print(b)
+    print(c)
+    print(d)
 
 
 
