@@ -8,6 +8,6 @@ April 2020
 1313. Decompress Run-Length Encoded List
 
 <https://dev.to/irfnhm/how-to-set-python3-as-a-default-python-version-on-mac-4jjf>
-<https://linuxize.com/post/change-git-commit-message/>
+<https://leetcode.com/problemset/all/>
 <https://leetcode.com/explore/interview/card/top-interview-questions-easy/>
 

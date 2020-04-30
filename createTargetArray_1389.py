@@ -1,13 +1,16 @@
 """
-============================================
+=======================================================================
 1389. Create Target Array in the Given Order
 createTargetArray()
-============================================
+<https://leetcode.com/problems/create-target-array-in-the-given-order/>
+=======================================================================
 
-Given two arrays of integers nums and index. Your task is to create target array under the following rules:
+Given two arrays of integers nums and index. 
+Your task is to create target array under the following rules:
 
 Initially target array is empty.
-From left to right read nums[i] and index[i], insert at index index[i] the value nums[i] in target array.
+From left to right read nums[i] and index[i], 
+insert at index index[i] the value nums[i] in target array.
 Repeat the previous step until there are no elements to read in nums and index.
 Return the target array.
 
@@ -58,10 +61,25 @@ class Solution(object):
         :type nums: List[int]
         :type index: List[int]
         :rtype: List[int]
+
+        Runtime: 16 ms, faster than 92.29% of Python online submissions for Create Target Array in the Given Order.
+        Memory Usage: 13.1 MB, less than 100.00% of Python online submissions for Create Target Array in the Given Order.
         """
+        len = nums.__len__()
+        arr = [-1] * len
+        for n in range(0, len):
+            i = index[n] 
+            if arr[i] == -1:
+                arr[i] = nums[i]
+            else:
+                arr = arr[:i] + [nums[n]] + arr[i:-1]
+        return arr
 
-        return
-
+    def createTargetArray_2(self, nums, index):
+        target = []
+        for i in zip(nums, index):
+            target.insert(i[1], i[0])
+        return target
 
 if __name__ == "__main__":
     nums1, index1, output1 = [0, 1, 2, 3, 4], [0, 1, 2, 2, 1], [0, 4, 1, 3, 2]
@@ -69,9 +87,9 @@ if __name__ == "__main__":
     nums3, index3, output3 = [1], [0], [1]
 
     s = Solution()
-    a = s.findNumbers(nums1, index1)
-    b = s.findNumbers(nums2, index2)
-    c = s.findNumbers(nums3, index3)
+    a = s.createTargetArray(nums1, index1)
+    b = s.createTargetArray(nums2, index2)
+    c = s.createTargetArray(nums3, index3)
 
     print(a)
     print(b)
