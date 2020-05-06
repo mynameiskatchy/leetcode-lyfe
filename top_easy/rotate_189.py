@@ -1,9 +1,10 @@
 """
-====================================================================
+==============================================================================================
 189. Rotate Array
 rotate()
 <https://leetcode.com/problems/rotate-array/>
-====================================================================
+<https://leetcode.com/explore/interview/card/top-interview-questions-easy/92/array/646/>
+==============================================================================================
 
 Given an array, rotate the array to the right by k steps, where k is non-negative.
 
