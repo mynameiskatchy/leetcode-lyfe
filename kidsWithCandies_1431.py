@@ -48,7 +48,20 @@ class Solution(object):
         :type extraCandies: int
         :rtype: List[bool]
         """
-        return 0
+
+        x = max(candies)
+    
+        return [True if i + extraCandies >= x else False for i in candies]
 
 if __name__ == "__main__":
+    candies1, extraCandies1, out1 = [2, 3, 5, 1, 3], 3, [True,True,True,False,True] 
+    candies2, extraCandies2, out2 = [4, 2, 1, 1, 2], 1, [True,False,False,False,False] 
+    candies3, extraCandies3, out3 = [12, 1, 12], 10, [True, False, True]
+
+    s = Solution()
+    a = s.kidsWithCandies(candies1, extraCandies1)
+    b = s.kidsWithCandies(candies2, extraCandies2)
+    c = s.kidsWithCandies(candies3, extraCandies3)
+
+    print (a, b, c)
     pass
