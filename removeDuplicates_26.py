@@ -1,9 +1,10 @@
 """
-=====================================================================
+=========================================================================================
 26. Remove Duplicates from Sorted Array
 removeDuplicates()
 <https://leetcode.com/problems/remove-duplicates-from-sorted-array/>
-=====================================================================
+<https://leetcode.com/explore/interview/card/top-interview-questions-easy/92/array/727/>
+=========================================================================================
 
 Given a sorted array nums, remove the duplicates in-place such that each element appear only once and return the new length.
 Do not allocate extra space for another array, you must do this by modifying the input array in-place with O(1) extra memory.
@@ -44,8 +45,19 @@ class Solution(object):
         """
         :type nums: List[int]
         :rtype: int
+
+        Runtime: 60 ms, faster than 97.48% of Python online submissions for Remove Duplicates from Sorted Array.
+        Memory Usage: 14.7 MB, less than 6.25% of Python online submissions for Remove Duplicates from Sorted Array.
         """
-        return 0
+        nums[:] = sorted(list(set(nums)))
+        return nums.__len__()
 
 if __name__ == "__main__":
+    s = Solution()
+    a = s.removeDuplicates([-1, 0, 0, 0, 0, 3, 3])
     pass
+
+
+"""
+<https://stackoverflow.com/questions/12897374/get-unique-values-from-a-list-in-python>
+"""
