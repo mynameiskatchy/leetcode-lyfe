@@ -45,8 +45,33 @@ class Solution(object):
         :type nums: List[int]
         :type k: int
         :rtype: None Do not return anything, modify nums in-place instead.
+
+        Runtime: 52 ms, faster than 50.40% of Python online submissions for Rotate Array.
+        Memory Usage: 13.7 MB, less than 6.25% of Python online submissions for Rotate Array.
+
+        Runtime: 40 ms, faster than 97.76%  of Python online submissions for Rotate Array.
+        Memory Usage: 13.6 MB, less than 6.25% of Python online submissions for Rotate Array.
         """
-        return 0
+        x = nums.__len__()
+        rotated = nums[x-k:] + nums[:x-k]
+
+        for i in range(x):
+            nums[i] = nums[x-k:] + nums[:x-k]
+
+        # A one-liner solution
+        # nums[:] = nums[nums.__len__()-k:] + nums[:nums.__len__()-k]
+
+        return None
 
 if __name__ == "__main__":
+    nums1, k1= [1, 2, 3, 4, 5, 6, 7], 3
+    output1 = [5, 6, 7, 1, 2, 3, 4]
+    nums2, k2 = [-1, -100, 3, 99], 2
+    output2 = [3, 99, -1, -100]
+
+    s = Solution()
+    a = s.rotate(nums1, k1)
+    b = s.rotate(nums2, k2)
+    print(a, b)
+
     pass
