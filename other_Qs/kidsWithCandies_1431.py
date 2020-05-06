@@ -47,6 +47,9 @@ class Solution(object):
         :type candies: List[int]
         :type extraCandies: int
         :rtype: List[bool]
+
+        Runtime: 16 ms, faster than 98.84% of Python online submissions for Kids With the Greatest Number of Candies.
+        Memory Usage: 12.7 MB, less than 100.00% of Python online submissions for Kids With the Greatest Number of Candies.
         """
 
         x = max(candies)
