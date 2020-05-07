@@ -46,6 +46,47 @@ class Solution(object):
         :type nums: List[int]
         :rtype: int
 
+        Runtime: 92 ms, faster than 21.39% of Python online submissions for Remove Duplicates from Sorted Array.
+        Memory Usage: 14.5 MB, less than 6.25% of Python online submissions for Remove Duplicates from Sorted Array.
+
+        Runtime: 80 ms, faster than 37.80%  of Python online submissions for Remove Duplicates from Sorted Array.
+        Memory Usage: 14.5 MB, less than 6.25% of Python online submissions for Remove Duplicates from Sorted Array.
+        """
+
+        for i in range(len(nums)):
+            if nums[i+1:i+2] == []:
+                return i + 1
+            if nums[i] == nums[i+1]:
+                nums.pop(i+1)
+                i -= 1   # doesnt work because i forces next value 
+
+
+    def removeDuplicates_3(self, nums):
+        """
+        :type nums: List[int]
+        :rtype: int
+
+        Runtime: 92 ms, faster than 21.39% of Python online submissions for Remove Duplicates from Sorted Array.
+        Memory Usage: 14.5 MB, less than 6.25% of Python online submissions for Remove Duplicates from Sorted Array.
+       
+        Runtime: 80 ms, faster than 37.80%  of Python online submissions for Remove Duplicates from Sorted Array.
+        Memory Usage: 14.5 MB, less than 6.25% of Python online submissions for Remove Duplicates from Sorted Array.
+        """
+
+        i = 0
+        while nums[i+1:i+2] != []:
+            if nums[i] == nums[i+1]:
+                nums.pop(i+1)
+            else:
+                i += 1
+                
+        return i + 1
+
+    def removeDuplicates_2(self, nums):
+        """
+        :type nums: List[int]
+        :rtype: int
+
         Runtime: 60 ms, faster than 97.48% of Python online submissions for Remove Duplicates from Sorted Array.
         Memory Usage: 14.7 MB, less than 6.25% of Python online submissions for Remove Duplicates from Sorted Array.
         """
@@ -54,7 +95,10 @@ class Solution(object):
 
 if __name__ == "__main__":
     s = Solution()
-    a = s.removeDuplicates([-1, 0, 0, 0, 0, 3, 3])
+    a = s.removeDuplicates([1,1,2])   # output = 2
+    b = s.removeDuplicates([0, 0, 1, 1, 1, 2, 2, 3, 3, 4])   # output = 5
+    c = s.removeDuplicates([-1, 0, 0, 0, 0, 3, 3])   # output = 3
+    print(a, b, c)
     pass
 
 
