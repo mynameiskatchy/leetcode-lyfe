@@ -41,7 +41,36 @@ for (int i = 0; i < len; i++) {
 
 
 class Solution(object):
-    def removeDuplicates(self, nums):
+    def removeDuplicates_7(self, n):
+        L, j = len(n), 0
+        if L in [0,1]: 
+            return L
+        for i in range(L-1):
+            if n[i] != n[i+1]: 
+                n[j], j = n[i], j + 1
+        n[j] = n[-1]
+        return j + 1
+
+    def removeDuplicates_6(self, nums):
+
+        prev, size = None, len(nums)
+        unique_pos, current_pos = 0, 0
+
+        while current_pos < size:
+
+            if nums[current_pos] != prev:
+                # catch and move unique element
+                nums[unique_pos] = nums[current_pos]
+                # update index for next unique element
+                unique_pos += 1
+            # update previous element for next iteration
+            prev = nums[current_pos]
+            # update index for linear element scan
+            current_pos += 1
+
+        return unique_pos
+
+    def removeDuplicates_4(self, nums):
         """
         :type nums: List[int]
         :rtype: int
@@ -58,10 +87,10 @@ class Solution(object):
                 return i + 1
             if nums[i] == nums[i+1]:
                 nums.pop(i+1)
-                i -= 1   # doesnt work because i forces next value 
+                i -= 1   # doesnt work because i cant be modified and just forces next value 
 
 
-    def removeDuplicates_3(self, nums):
+    def removeDuplicates(self, nums):
         """
         :type nums: List[int]
         :rtype: int
@@ -98,7 +127,8 @@ if __name__ == "__main__":
     a = s.removeDuplicates([1,1,2])   # output = 2
     b = s.removeDuplicates([0, 0, 1, 1, 1, 2, 2, 3, 3, 4])   # output = 5
     c = s.removeDuplicates([-1, 0, 0, 0, 0, 3, 3])   # output = 3
-    print(a, b, c)
+    d = s.removeDuplicates([0, 0, 0])
+    print(a, b, c, d)
     pass
 
 

@@ -53,7 +53,27 @@ class Solution(object):
         Runtime: 40 ms, faster than 97.76%  of Python online submissions for Rotate Array.
         Memory Usage: 13.6 MB, less than 6.25% of Python online submissions for Rotate Array.
         """
-        x = nums.__len__()
+        x = len(nums)
+        rotated = nums[x-k:] + nums[:x-k]
+
+        for i in range(x):
+            nums[i] = nums[x-k:] + nums[:x-k]                                                                                                                                              
+
+        return None
+
+    def rotate_1(self, nums, k):
+        """
+        :type nums: List[int]
+        :type k: int
+        :rtype: None Do not return anything, modify nums in-place instead.
+
+        Runtime: 52 ms, faster than 50.40% of Python online submissions for Rotate Array.
+        Memory Usage: 13.7 MB, less than 6.25% of Python online submissions for Rotate Array.
+
+        Runtime: 40 ms, faster than 97.76%  of Python online submissions for Rotate Array.
+        Memory Usage: 13.6 MB, less than 6.25% of Python online submissions for Rotate Array.
+        """
+        x = len(nums)
         rotated = nums[x-k:] + nums[:x-k]
 
         for i in range(x):
