@@ -2,7 +2,7 @@
 """
 ====================================================================================================
 283. Move Zeroes
-moveZeros()
+moveZeroes()
 <https://leetcode.com/problems/move-zeroes/>
 <https://leetcode.com/explore/interview/card/top-interview-questions-easy/92/array/567/>
 ====================================================================================================
