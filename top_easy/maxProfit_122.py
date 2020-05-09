@@ -45,7 +45,20 @@ Constraints:
 
 
 class Solution(object):
+
     def maxProfit(self, prices):
+        """
+        Runtime: 36 ms, faster than 99.69% of Python online submissions for Best Time to Buy and Sell Stock II.
+        Memory Usage: 13.9 MB, less than 9.30% of Python online submissions for Best Time to Buy and Sell Stock II. 
+        """
+        summ = 0
+        for i in range(len(prices)-1):
+            if prices[i+1]-prices[i] > 0:
+                summ += prices[i+1]-prices[i]
+
+        return summ
+        
+    def maxProfit_6(self, prices):
         """
         :type prices: List[int]
         :rtype: int
