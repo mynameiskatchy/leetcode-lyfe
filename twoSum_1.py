@@ -28,6 +28,25 @@ class Solution(object):
         :type target: int
         :rtype: List[int]
 
+        Runtime: 36 ms, faster than 82.41% of Python online submissions for Two Sum.
+        Memory Usage: 13.9 MB, less than 5.13% of Python online submissions for Two Sum.
+
+        """
+        d = dict()
+        
+        for i, val1 in enumerate(nums):
+            val2 = target - val1
+            if val2 in d: # check if we've seen the value yet
+                return [d[val2], i]
+            else:
+                d[val1] = i
+
+    def twoSum3(self, nums, target):
+        """
+        :type nums: List[int]
+        :type target: int
+        :rtype: List[int]
+
         Runtime: 60 ms, faster than 46.27% of Python online submissions for Two Sum.
         Memory Usage: 14.4 MB, less than 5.13% of Python online submissions for Two Sum.
 
@@ -78,19 +97,27 @@ class Solution(object):
 
     
 if __name__ == "__main__":
+    # Testcase 1
     nums1 = [2, 7, 11, 15]
     target1 = 9
     output1 = [0, 1]
+    # Testcase 2
     nums2 = [3, 2, 4]
     target2 = 6
     output2 = [1, 2]
+    # Testcase 3
     nums3 = [3, 2, 3]
     target3 = 6
-    output = [0, 2]
+    output3 = [0, 2]
+    # Testcase 4
+    nums4 = [1, 3, 4, 2]
+    target4 = 6
+    output4 = [2, 3]
 
     s = Solution()
     a = s.twoSum(nums1, target1)
     b = s.twoSum(nums2, target2)
     c = s.twoSum(nums3, target3)
-    print(a, b, c)
+    d = s.twoSum(nums4, target4)
+    print(a, b, c, d)
     pass
