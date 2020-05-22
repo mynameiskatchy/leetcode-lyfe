@@ -30,13 +30,16 @@ Explanation: The array represents the integer 4321.
 
 
 class Solution(object):
-    def plusOne(self, digits):
+    def plusOne_iterative (self, digits):
         """
         :type digits: List[int]
         :rtype: List[int]
+        Runtime: 20 ms, faster than 69.37% of Python online submissions for Plus One.
+        Memory Usage: 12.6 MB, less than 6.25% of Python online submissions for Plus One.
 
+        Runtime: 40 ms, faster than 5.90% of Python online submissions for Plus One.
+        Memory Usage: 12.7 MB, less than 6.25% of Python online submissions for Plus One.
         """
-
         digits[-1] += 1
         if digits[-1] > 9:
             digits = [0] + digits
@@ -48,28 +51,29 @@ class Solution(object):
 
         return digits if digits[0] != 0 else digits[1:]
 
-    def plusOne_iterative(self, digits):
+    def plusOne_recursive(self, digits):
         """
         :type digits: List[int]
         :rtype: List[int]
+
+        Runtime: 36 ms, faster than 35.84% of Python3 online submissions for Plus One.
+        Memory Usage: 13.8 MB, less than 5.13% of Python3 online submissions for Plus One.
+
         Runtime: 20 ms, faster than 69.37% of Python online submissions for Plus One.
-        Memory Usage: 12.6 MB, less than 6.25% of Python online submissions for Plus One.
+        Memory Usage: 12.7 MB, less than 6.25% of Python online submissions for Plus One.   
 
-        Runtime: 40 ms, faster than 5.90% of Python online submissions for Plus One.
-        Memory Usage: 12.7 MB, less than 6.25% of Python online submissions for Plus One.
         """
-
-        digits[-1] += 1
-        if digits[-1] > 9:
-            digits = [0] + digits
-            i = len(digits) - 1
-            while(digits[i] > 9 and i > 0):
-                digits[i] = 0
-                digits[i-1] +=1
-                i -= 1
-                
-        return digits if digits[0] != 0 else digits[1:]
-
+        i = len(digits)
+        if digits[-1] < 9:
+            digits[-1] += 1
+            return digits
+        elif digits[-1] == 9 and i == 1:
+            return [1, 0]
+        elif digits[-1] == 9:
+            digits[-1] = 0
+            return self.plusOne_recursive(digits[:i-1]) + digits[i-1:]
+        
+        
     def plusOne_1(self, digits):
         """
         :type digits: List[int]
@@ -104,16 +108,16 @@ if __name__ == "__main__":
     output5 = [1, 0]
     digits6 = [9, 9, 9]
     output = [1, 0, 0, 0]
-    digits7 = [8, 9, 9, 9]
+    digits7 = [9, 9, 9, 9]
     output = [9, 0, 0, 0]
 
     s = Solution()
-    a = s.plusOne(digits1)
-    b = s.plusOne(digits2)
-    c = s.plusOne(digits3)
-    d = s.plusOne(digits4)
-    e = s.plusOne(digits5)
-    f = s.plusOne(digits6)
-    g = s.plusOne(digits7)
+    a = s.plusOne(digits1) # 123
+    b = s.plusOne(digits2) # 4321
+    c = s.plusOne(digits3) # 99
+    d = s.plusOne(digits4) # 19
+    e = s.plusOne(digits5) # 9
+    f = s.plusOne(digits6) # 999
+    g = s.plusOne(digits7) # 899
     print(a, b, c, d, e, f, g)
     pass
