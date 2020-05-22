@@ -41,6 +41,10 @@ k >= 0
 
 
 class Solution(object):
+    def rotate_inplace(self, nums, k):
+        "TBD"
+        return 0
+
     def rotate(self, nums, k):
         """
         :type nums: List[int]

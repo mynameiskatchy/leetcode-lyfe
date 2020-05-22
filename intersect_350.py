@@ -36,9 +36,41 @@ class Solution(object):
         :type nums1: List[int]
         :type nums2: List[int]
         :rtype: List[int]
+
+        This implimentation doesnt work because it doesnt necesarily show
+        a particular number as many times as it shows in both arrays
         """
-        return 0
+
+        # get smaller array to check for subsets
+        smol = nums1 if len(nums1) <= len(nums2) else nums2
+
+        return set(nums1 and nums2)
+
+    def intersect_bad_1(self, nums1, nums2):
+        """
+        :type nums1: List[int]
+        :type nums2: List[int]
+        :rtype: List[int]
+
+        This implimentation doesnt work because it doesnt necesarily show
+        a particular number as many times as it shows in both arrays
+        """
+        return set(nums1 and nums2)
 
     
 if __name__ == "__main__":
+
+    nums1a = [1, 2, 2, 1]
+    nums1b = [2, 2]
+    output1 = [2, 2]
+
+    nums2a = [4, 9, 5]
+    nums2b = [9, 4, 9, 8, 4]
+    output2 = [4, 9]
+
+    s = Solution()
+    a = s.intersect(nums1a, nums1b)
+    b = s.intersect(nums2a, nums2b)
+
+    print(a, b)
     pass
