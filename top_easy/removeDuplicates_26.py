@@ -1,4 +1,4 @@
-"""
+""" 
 =========================================================================================
 26. Remove Duplicates from Sorted Array
 removeDuplicates()
@@ -41,6 +41,9 @@ for (int i = 0; i < len; i++) {
 
 
 class Solution(object):
+    def removeDuplicates_inPlace(self, n):
+        return 0
+        
     def removeDuplicates_7(self, n):
         L, j = len(n), 0
         if L in [0,1]: 
