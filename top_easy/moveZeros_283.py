@@ -35,13 +35,6 @@ class Solution(object):
         move zero pointer whenever we encounter a non-zero. 
         will give us potential position to swap to
         """
-        # zero = 0
-        # i = 0
-        # while i < len(nums):
-        #     if nums[i] != 0:
-        #         nums[zero], nums[i] = nums[i], nums[zero]
-        #         zero+=1
-        #     i+=1
         zero = 0
         for i in range(len(nums)):
             if nums[i] != 0:
