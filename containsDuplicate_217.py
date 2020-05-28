@@ -27,8 +27,15 @@ Output: true
 """
 
 class Solution(object):
-    
-    def containsDuplicate(self, nums):
+
+    def containsDuplicate(self,nums):
+        nums.sort()
+        for i in range(len(nums)-1):
+            if nums[i] == nums[i+1]:
+                return False
+        return True
+
+    def containsDuplicate_z(self, nums):
         """
         just testing something
         """
@@ -44,7 +51,7 @@ class Solution(object):
         Runtime: 108 ms, faster than 59.06% of Python online submissions for Contains Duplicate.
         Memory Usage: 18.5 MB, less than 5.55% of Python online submissions for Contains Duplicate.
         """
-        d = 
+        d = {}
         for i in nums:
             if i in d:
                 return True
@@ -64,6 +71,7 @@ class Solution(object):
         Memory Usage: 18 MB, less than 5.55% of Python online submissions for Contains Duplicate.
         """
         return True if len(set(nums)) < len(nums) else False
+        # return len(set(nums)) < len(nums)
 
 if __name__ == "__main__":
     input1 = [1, 2, 3, 1]
