@@ -175,7 +175,7 @@ if __name__ == "__main__":
 class Solution:
     def rotate_CyclicReplacements(self, nums: List[int], k: int) -> None:
         """
-        O(n) time and O(1) space
+        # O(n) time and O(1) space
         """
         n = len(nums)
         k %= n
