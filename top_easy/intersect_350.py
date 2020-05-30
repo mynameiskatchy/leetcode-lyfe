@@ -1,5 +1,5 @@
 
-"""
+""" Could use more improvements
 ====================================================================================================
 350. Intersection of Two Arrays II
 intersect()
@@ -32,7 +32,7 @@ the memory is limited such that you cannot load all elements into the memory at 
 """
 
 class Solution(object):
-
+    # Ones that dont work
     def intersect_almost(self, nums1, nums2):
         """
         :type nums1: List[int]
@@ -56,7 +56,8 @@ class Solution(object):
         """
         return set(nums1 and nums2)
 
-    def intersect(self, nums1, nums2):
+    # Ones that work
+    def intersect_ok(self, nums1, nums2):
         """
         :type nums1: List[int]
         :type nums2: List[int]
@@ -87,6 +88,58 @@ class Solution(object):
                 d[i] -= 1
 
         return intersection
+    
+    def intersect_sorted_and_pop(self, nums1, nums2):
+        """
+        :type nums1: List[int]
+        :type nums2: List[int]
+        :rtype: List[int]
+
+        Runtime: 36 ms, faster than 68.94% of Python online submissions for Intersection of Two Arrays II.
+        Memory Usage: 12.8 MB, less than 5.13% of Python online submissions for Intersection of Two Arrays II.
+        
+        Runtime: 32 ms, faster than 86.80% of Python online submissions for Intersection of Two Arrays II.
+        Memory Usage: 12.7 MB, less than 5.13% of Python online submissions for Intersection of Two Arrays II.
+        
+        Runtime: 28 ms, faster than 96.45% of Python online submissions for Intersection of Two Arrays II.
+        Memory Usage: 12.7 MB, less than 5.13% of Python online submissions for Intersection of Two Arrays II.
+        """
+        nums1.sort() # O(nlogn)
+        nums2.sort() # O(nlogn)
+
+        intersection = []
+
+        while nums1 and nums2: # O(n)
+            if nums1[-1] < nums2[-1]:
+                nums2.pop()
+            elif nums1[-1] > nums2[-1]:
+                nums1.pop()
+            else:
+                x = nums1.pop()
+                nums2.pop()
+                intersection.append(x)
+        
+        return intersection
+
+    def intersect(self, nums1, nums2):
+        nums1.sort()
+        nums2.sort()
+        i = 0
+        j = 0
+        intersection = []
+        while i < len(nums1) and j < len(nums2):
+            if(nums1[i] > nums2[j]):
+                j += 1
+            elif(nums1[i] < nums2[j]):
+                i += 1
+            else:
+                intersection.append(nums1[i])
+                i += 1
+                j += 1
+
+        return intersection
+
+
 
             
                 
