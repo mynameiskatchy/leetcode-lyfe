@@ -1,5 +1,5 @@
 
-"""
+""" Gucci for most part. Could improve without reverse maybe
 ====================================================================================================
 48. Rotate Image
 rotate()
@@ -55,11 +55,59 @@ class Solution(object):
         """
         :type matrix: List[List[int]]
         :rtype: None Do not return anything, modify matrix in-place instead.
+
+        Runtime: 20 ms, faster than 87.10% of Python online submissions for Rotate Image.
+        Memory Usage: 12.8 MB, less than 5.41% of Python online submissions for Rotate Image.
+        
+        Runtime: 24 ms, faster than 63.75% of Python online submissions for Rotate Image.
+        Memory Usage: 12.9 MB, less than 5.41% of Python online submissions for Rotate Image.
         """
+        # Transpose regularly
+        for i in range(len(matrix)):
+          for j in range(len(matrix[0])):
+            if i < j:
+              matrix[i][j], matrix[j][i] = matrix[j][i], matrix[i][j]
+          matrix[i] = matrix[i][::-1]
+        # # Reverse columns
+        # for i in range(len(matrix)):
+        #   matrix[i].reverse()
 
-
-        return 0
+        return matrix
 
     
 if __name__ == "__main__":
-    pass
+  # example1
+  input1 = \
+    [
+      [1, 2, 3],
+      [4, 5, 6],
+      [7, 8, 9]
+    ]
+  output1 = \
+    [
+      [7, 4, 1],
+      [8, 5, 2],
+      [9, 6, 3]
+    ]
+  # example2
+  input2 = \
+    [
+        [5, 1, 9, 11],
+        [2, 4, 8, 10],
+        [13, 3, 6, 7],
+        [15, 14, 12, 16]
+        ]
+
+  output2 = \
+    [
+        [15, 13, 2, 5],
+        [14, 3, 4, 1],
+        [12, 6, 8, 9],
+        [16, 7, 10, 11]
+        ]
+
+  s = Solution()
+  a = s.rotate(input1)
+  b = s.rotate(input2)
+  print(a, b)
+  pass
