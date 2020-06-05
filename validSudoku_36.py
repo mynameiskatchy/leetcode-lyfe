@@ -81,20 +81,27 @@ class Solution(object):
             m[i] = board[i]
             n[i] = col
 
-        def sum_list(values):
-            s = 0
+        def contains_dupes(values):
+            count = {}
             for i in values:
                 if i != '.':
-                    s += int(i)
-            return s
-
-        m = [sum_list(i) == sum_list(set(i)) for i in m.values()]
-        n = [sum_list(i) == sum_list(set(i)) for i in n.values()]
-
-        if False in (m + n):
+                    if i not in count.keys():
+                        count[i] = 1
+                    else:
+                        return True
             return False
-        else:
-            return True
+        
+        # m = [sum_list(i) == sum_list(set(i)) for i in m.values()]
+        # n = [sum_list(i) == sum_list(set(i)) for i in n.values()]
+
+        count_m = {}
+        for i in m.values():
+            if contains_dupes(i):
+                return False
+        for i in n.values():
+            if contains_dupes(i):
+                return False
+        return True
 
 
 if __name__ == "__main__":
