@@ -1,5 +1,5 @@
 
-""" Could be improved way more
+""" Could be improved way more & needs to check 3x3 square
 ====================================================================================================
 36. Valid Sudoku
 validSudoku()
@@ -68,7 +68,64 @@ class Solution(object):
         :type board: List[List[str]]
         :rtype: bool
 
-        470 / 504 test cases passed.
+        needs to check 3x3 square is valid
+        """
+
+        def is_duplicates(items):
+            """ Check if list contains duplicates
+            :type items: List[str]
+            :rtype: bool
+            """
+            d = {}
+            
+            for j, val in enumerate(items):
+                if val != ".":
+                    if val in d:
+                        return True
+                    else:
+                        d[val] = 1
+            return False
+
+        def get_columns(board):
+            """ Make a board with easier to access columns
+            :type board: List[List[str]]
+            rtype: Dict[str]
+            """
+            d = {}
+            
+            for j in range(9):
+                temp = []
+                for i, row in enumerate(board):
+                    temp.append(row[j])
+                    d[j] = temp
+            return d
+        
+        def convert_to_dict(board):
+            """ Make board with easier to access rows
+            :type board: List[List[str]]
+            rtype: Dict[str]
+            """
+            d = {i:val for i, val in enumerate(board)}
+            return d
+
+        m = convert_to_dict(board)
+        n = get_columns(board)
+
+        for i in range(9):
+            if is_duplicates(m[i]) == True or is_duplicates(n[i]) == True:
+                return False
+        return True
+
+    
+
+    def isValidSudoku2(self, board):
+        """
+        :type board: List[List[str]]
+        :rtype: bool
+
+        470 / 504 test cases passeda.
+        
+        needs to check 3x3 square is valid
         """
 
         m = {}
@@ -91,9 +148,6 @@ class Solution(object):
                         return True
             return False
         
-        # m = [sum_list(i) == sum_list(set(i)) for i in m.values()]
-        # n = [sum_list(i) == sum_list(set(i)) for i in n.values()]
-
         count_m = {}
         for i in m.values():
             if contains_dupes(i):
@@ -143,6 +197,16 @@ if __name__ == "__main__":
             [".","2",".","9",".",".",".",".","."],
             [".",".","4",".",".",".",".",".","."]]
 
+    [
+        [".",".",".",".","5",".",".","1","."],
+        [".","4",".","3",".",".",".",".","."],
+        [".",".",".",".",".","3",".",".","1"],
+        ["8",".",".",".",".",".",".","2","."],
+        [".",".","2",".","7",".",".",".","."],
+        [".","1","5",".",".",".",".",".","."],
+        [".",".",".",".",".","2",".",".","."],
+        [".","2",".","9",".",".",".",".","."],
+        [".",".","4",".",".",".",".",".","."]]
     s = Solution()
     a = s.isValidSudoku(input1)
     b = s.isValidSudoku(input2)
