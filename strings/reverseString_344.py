@@ -27,12 +27,18 @@ The entire logic for reversing a string is based on using the opposite direction
 
 class Solution(object):
     def reverseString_troll(self, s):
-        """
+        """ This is using the built in function
         Runtime: 164 ms, faster than 96.23% of Python online submissions for Reverse String.
         Memory Usage: 19.6 MB, less than 60.79% of Python online submissions for Reverse String.
         """
         s.reverse()
-        return s
+    
+    def reverseString_splice(self, s):
+        """ This uses extra memory to create temp splice objects
+        Runtime: 172 ms, faster than 78.84% of Python online submissions for Reverse String.
+        Memory Usage: 19.6 MB, less than 75.68% of Python online submissions for Reverse String.
+        """
+        s[:] = s[::-1]
 
     def reverseString(self, s):
         """
