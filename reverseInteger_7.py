@@ -30,30 +30,43 @@ For the purpose of this problem, assume that your function returns 0 when the re
 """
 
 class Solution(object):
-    def reverse1(self, x):
+    def reverse(self, x):
         """
         This solution uses in-place mutations, and 2 pointers
 
         : type x: int
         : rtype: int
 
-        47 / 1032 test cases passed.
+        1027 / 1032 test cases passed. missed the 2**31 condition
+        1030 / 1032 test cases passed. missed the 2**31 condition on negative side
+
+        Runtime: 20 ms, faster than 74.48% of Python online submissions for Reverse Integer.
+        Memory Usage: 12.7 MB, less than 77.27% of Python online submissions for Reverse Integer.
+
+        Runtime: 16 ms, faster than 90.97% of Python online submissions for Reverse Integer.
+        Memory Usage: 12.6 MB, less than 95.71% of Python online submissions for Reverse Integer.
+
+        Runtime: 28 ms, faster than 21.52% of Python online submissions for Reverse Integer.
+        Memory Usage: 12.6 MB, less than 93.36% of Python online submissions for Reverse Integer.
         """
+
         digits = [d for d in str(x)]
         end = len(digits) - 1
         start = 0
 
         # adding plus one fixes issue, but then we swapping one extra time
-        while(start < end):
+        while(start <= end):
             if digits[start] != '-':
                 digits[start], digits[end] = digits[end], digits[start]
                 start += 1
                 end -= 1
-            start +=1
+            else:
+                start += 1
+        
+        new_val = int(''.join(digits))
+        return 0 if abs(new_val) > 2**31 else new_val
 
-        return int(''.join(digits))
-
-    def reverse(self, x):
+    def reverse1(self, x):
         """
         This solution uses in-place mutations, and only one pointer
 
@@ -88,7 +101,10 @@ if __name__ == "__main__":
     output5 = 1
     input6 = 901000
     output6 = 109
-
+    input7 = 1534236469
+    output7 = 9646324351
+    input8 = -2147483648
+    output8 = -8463847412
 
     s = Solution()
     a = s.reverse(input1)
@@ -97,5 +113,8 @@ if __name__ == "__main__":
     d = s.reverse(input4)
     e = s.reverse(input5)
     f = s.reverse(input6)
-    print(a, b, c, d, e, f)
+    g = s.reverse(input7)
+    h = s.reverse(input8)
+
+    print(a, b, c, d, e, f, g, h)
     pass
