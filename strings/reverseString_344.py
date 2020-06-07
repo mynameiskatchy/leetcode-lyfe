@@ -102,11 +102,14 @@ if __name__ == "__main__":
     input2 = ["H", "a", "n", "n", "a", "h"]
     output2 = ["h", "a", "n", "n", "a", "H"]
 
+    input3 = ["H"]
+    output3 = ["H"]
+
     s = Solution()
     a = s.reverseString(input1)
     b = s.reverseString(input2)
+    c = s.reverseString(input3)
 
-    print(a,b)
+    print(a,b,c)
 
-    input2.reverse()
     pass
