@@ -76,6 +76,16 @@ class Solution(object):
         Issues with cases where 2 digits
         973 / 1032 test cases passed. Didnt take into account small numbers
         978 / 1032 test cases passed. Didnt take into account i < pointer
+        1027 / 1032 test cases passed.
+
+        Runtime: 16 ms, faster than 90.97% of Python online submissions for Reverse Integer.
+        Memory Usage: 12.7 MB, less than 55.17% of Python online submissions for Reverse Integer.
+        Runtime: 12 ms, faster than 98.25% of Python online submissions for Reverse Integer.
+        Memory Usage: 12.8 MB, less than 39.95% of Python online submissions for Reverse Integer.
+        Runtime: 24 ms, faster than 47.89% of Python online submissions for Reverse Integer.
+        Memory Usage: 12.6 MB, less than 79.68% of Python online submissions for Reverse Integer.
+        Runtime: 20 ms, faster than 74.48% of Python online submissions for Reverse Integer.
+        Memory Usage: 12.7 MB, less than 42.83% of Python online submissions for Reverse Integer.
         """
         digits = [d for d in str(x)]
         pointer = len(digits)-1
@@ -86,7 +96,33 @@ class Solution(object):
                 digits[i], digits[pointer] = digits[pointer], digits[i]
                 pointer -= 1
 
-        return int(''.join(digits))
+        new_val = int(''.join(digits))
+        return 0 if abs(new_val) > 2**31 else new_val
+
+    def reverse2(self, x):
+        """ Modified a discussion post
+        :type x: int
+        :rtype: int
+
+        Runtime: 8 ms, faster than 99.89% of Python online submissions for Reverse Integer.
+        Memory Usage: 12.7 MB, less than 57.72% of Python online submissions for Reverse Integer.
+        
+        Runtime: 16 ms, faster than 90.97% of Python online submissions for Reverse Integer.
+        Memory Usage: 12.8 MB, less than 39.51% of Python online submissions for Reverse Integer.   
+        
+        Runtime: 28 ms, faster than 21.52% of Python online submissions for Reverse Integer.
+        Memory Usage: 12.7 MB, less than 57.72% of Python online submissions for Reverse Integer.
+        
+        Runtime: 24 ms, faster than 47.89% of Python online submissions for Reverse Integer.
+        Memory Usage: 12.9 MB, less than 12.27% of Python online submissions for Reverse Integer.
+        
+        Runtime: 20 ms, faster than 74.48% of Python online submissions for Reverse Integer.
+        Memory Usage: 12.8 MB, less than 38.81% of Python online submissions for Reverse Integer.
+        """
+        x = int(str(x)[::-1]) if x >= 0 else -int(str(-x)[::-1])
+        return x if abs(x) < 2**31 else 0
+
+
 
 if __name__ == "__main__":
     input1 = 123
