@@ -17,11 +17,11 @@ The count-and-say sequence is the sequence of integers with the first five terms
 11 is read off as "two 1s" or 21.
 21 is read off as "one 2, then one 1" or 1211.
 
-Given an integer n where 1 ≤ n ≤ 30, generate the nth term of the count-and-say sequence. You can do so recursively, in other words from the previous member read off the digits, counting the number of digits in groups of the same digit.
+Given an integer n where 1 ≤ n ≤ 30, generate the nth term of the count-and-say sequence. 
+You can do so recursively, in other words from the previous member read off the digits, 
+counting the number of digits in groups of the same digit.
 
 Note: Each term of the sequence of integers will be represented as a string.
-
- 
 
 Example 1:
 ----------
@@ -33,7 +33,10 @@ Example 2:
 ----------
 Input: 4
 Output: "1211"
-Explanation: For n = 3 the term was "21" in which we have two groups "2" and "1", "2" can be read as "12" which means frequency = 1 and value = 2, the same way "1" is read as "11", so the answer is the concatenation of "12" and "11" which is "1211".
+Explanation: For n = 3 the term was "21" 
+in which we have two groups "2" and "1", "2" can be read as "12" 
+which means frequency = 1 and value = 2, the same way "1" is read as "11", 
+so the answer is the concatenation of "12" and "11" which is "1211".
 
 HINT#1
 ------
@@ -61,6 +64,19 @@ class Solution(object):
         :type n: int
         :rtype: str
         """
+        
 
 if __name__ == "__main__":
+    input1 = 1
+    output = "1"
+
+    input2 = 4
+    output = "1211"
+
+    s = Solution()
+
+    a = s.countAndSay(input1)
+    b = s.countAndSay(input2)
+
+    print(a, b)
     pass
