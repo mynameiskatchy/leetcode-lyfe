@@ -5,5 +5,8 @@
         "decompress",
         "elist",
         "rl"
-    ]
+    ],
+    "editor.formatOnPaste": true,
+    "editor.formatOnType": true,
+    "editor.tabSize": 4
 }

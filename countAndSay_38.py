@@ -59,13 +59,31 @@ To generate the nth term, just count and say the n-1th term.
 
 
 class Solution(object):
-    def countAndSay(self, n):
-        """
-        :type n: int
-        :rtype: str
-        """
-        
 
+    def countAndSay(self, prev):
+        next = ''
+
+        counter = 1
+        i = 0
+        if len(prev) == 1:
+            return '1' + prev[0]
+        while i < len(prev)-1:
+            if prev[i] == prev[i + 1]:
+                counter += 1
+                i += 1
+            else:
+                next += str(counter) + prev[i]
+                counter = 1
+                i += 1
+
+        return next
+
+    def countAndSay_(self, n):
+        base = '1'
+        for i in range(n):
+            return s[-1]
+            
+        
 if __name__ == "__main__":
     input1 = 1
     output = "1"
@@ -75,8 +93,29 @@ if __name__ == "__main__":
 
     s = Solution()
 
-    a = s.countAndSay(input1)
-    b = s.countAndSay(input2)
+    # a = '1'
+    # b = '11'
+    # c = '21'
+    # d = '1211'
+    # e = '111221'
+    # f = '312211'
+    # g = '13112221'
+    # h = '1113213211'
+    # i = '31131211131221'
+    # j = '13211311123113112211'
+
+    a = s.countAndSay('1')
+    b = s.countAndSay('11')
+    c = s.countAndSay('21')
+    d = s.countAndSay('1211')
+    e = s.countAndSay('111221')
+    f = s.countAndSay('312211')
+    g = s.countAndSay('13112221')
+    h = s.countAndSay('1113213211')
+    i = s.countAndSay('31131211131221')
+    j = s.countAndSay('13211311123113112211')
+
+
 
     print(a, b)
     pass
