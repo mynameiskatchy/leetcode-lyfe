@@ -25,19 +25,79 @@ Hide Hint #1
 Maintain two pointers and update one with a delay of n steps.
 """
 
+
+def make_links(nums):
+    nodes = [ListNode(i) for i in nums]
+
+    for i in range(len(nums) - 1):
+        nodes[i].next = nodes[i + 1]
+    
+    return nodes[0]
+
 # Definition for singly-linked list.
-# class ListNode(object):
-#     def __init__(self, val=0, next=None):
-#         self.val = val
-#         self.next = next
+class ListNode(object):
+    def __init__(self, val=0, next=None):
+        self.val = val
+        self.next = next
+        self.len = 1
+    
+    def __repr__(self):
+        print(self.val)
+        if self.next != None:
+            self.next.__repr__()
+
+    def __len__(self):
+        if self.next == None:
+            return self.len
+        else:
+            return self.len + self.next.__len__()
+
 
 class Solution(object):
+    def removeNthFromEnd_1(self, head, n):
+        """
+        :type head: ListNode
+        :type n: int
+        :rtype: ListNode
+        """
+        curr = head
+        # Find out length of linked list by traversing it
+        l = len(head)
+        for i in range(l):
+            if i == l - n - 1:
+                curr.next = curr.next.next
+                break
+            else:
+                curr = curr.next
+
+        return head
+
     def removeNthFromEnd(self, head, n):
         """
         :type head: ListNode
         :type n: int
         :rtype: ListNode
         """
+        curr = head
+        # Find out length of linked list by traversing it
+        l = len(head)
+        for i in range(l):
+            if i == l - n - 1:
+                curr.next = curr.next.next
+                break
+            else:
+                curr = curr.next
+
+        return head
+
 
 if __name__ == "__main__":
+    
+    input1 = [1, 2, 3, 4, 5]
+    head1 = make_links(input1)
+    
+    s = Solution()
+    s.removeNthFromEnd(head1, 2)
+
+
     pass
