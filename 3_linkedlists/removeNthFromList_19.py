@@ -72,7 +72,7 @@ class Solution(object):
 
         return head
 
-    def removeNthFromEnd(self, head, n):
+    def removeNthFromEnd_2(self, head, n):
         """
         :type head: ListNode
         :type n: int
@@ -90,6 +90,46 @@ class Solution(object):
 
         return head
 
+    def removeNthFromEnd(self, head, n):
+        """
+        :type head: ListNode
+        :type n: int
+        :rtype: ListNode
+
+        # without knowing the number of nodes in advance
+
+        Runtime: 24 ms, faster than 66.77% of Python online submissions for Remove Nth Node From End of List.
+        Memory Usage: 12.7 MB, less than 69.30% of Python online submissions for Remove Nth Node From End of List.
+        
+        Runtime: 12 ms, faster than 99.70% of Python online submissions for Remove Nth Node From End of List.
+        Memory Usage: 12.6 MB, less than 95.27% of Python online submissions for Remove Nth Node From End of List.
+        
+        Runtime: 16 ms, faster than 96.98% of Python online submissions for Remove Nth Node From End of List.
+        Memory Usage: 12.7 MB, less than 74.97% of Python online submissions for Remove Nth Node From End of List.
+        """
+
+        # initialize fast and slow pointers 
+        fast = head
+        slow = head
+
+        # move the fast pointer up n nodes ahead
+        for _ in range(n):
+            fast = fast.next
+        
+        # if fast pointer doesnt point to a node
+        if not fast:
+            return head.next
+
+        # move both pointers up until one of them points to last node
+        # then we know slow pointer is n spots behind
+        while fast.next:
+            slow = slow.next
+            fast = fast.next
+        slow.next = slow.next.next
+
+        #return head node
+        return head
+        
 
 if __name__ == "__main__":
     
