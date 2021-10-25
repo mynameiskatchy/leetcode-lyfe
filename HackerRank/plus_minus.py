@@ -34,3 +34,12 @@ if __name__ == "__main__":
     n = 6
 
     a.plus_minus(n, arr)
+
+"""
+if __name__ == '__main__':
+    n = int(input().strip())
+
+    arr = list(map(int, input().rstrip().split()))
+
+    plusMinus(arr)
+"""
