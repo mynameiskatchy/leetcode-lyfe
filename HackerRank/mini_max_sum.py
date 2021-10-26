@@ -66,7 +66,7 @@ def miniMaxSum(arr):
             min = total - val
         if total - val > max:
             max = total - val
-            
+
     print('{} {}'.format(min, max))
 
 if __name__ == '__main__':
@@ -98,3 +98,6 @@ if __name__ == '__main__':
     max = 14
 
     """
+
+
+    
