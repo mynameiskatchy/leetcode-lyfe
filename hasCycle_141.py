@@ -53,4 +53,48 @@ class Solution(object):
 
 
 if __name__ == "__main__":
-    pass
+
+    def change(i=1, j=2):
+        i = i + j
+        j = j + 1
+        print(i, j)
+        
+    print(change(j = 1, i = 2))
+    
+
+    def teaTest(num):
+        DIV_BY_3_RESULT = "Tea"
+        DIV_BY_5_RESULT = "Test"
+
+        result = ""
+
+        if num % 3 == 0:
+            result += DIV_BY_3_RESULT
+        if num % 5 == 0:
+            result += DIV_BY_5_RESULT
+
+        return result if result != "" else num
+
+    input = [('CACUL1', 1002.238), ('NACC1', 0.324), ('MYC', 0.92), ('MAP2K7', 2327.46), ('SLC16A2', 32.38)]
+
+    result = ['CACUL1', 'MAP2K7']
+
+
+    def filter_genes(input_list):
+        
+        new_list = filter(lambda x: x[1] > 1000, input_list)
+        
+        return new_list
+
+    def filter_genes_list_comprehension(input_list):
+
+        return [x for x in input_list if x[1 > 1000]]
+
+    for i in filter_genes(input):
+        print(filter_genes(input))
+
+    print(input)
+    for i in input:
+        print(i[1])
+
+    print(filter_genes_list_comprehension(input))

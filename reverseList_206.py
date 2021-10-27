@@ -30,7 +30,34 @@ class Solution(object):
         """
         :type head: ListNode
         :rtype: ListNode
+
+
+        Runtime: 24 ms, faster than 80.79% of Python online submissions for Reverse Linked List.
+        Memory Usage: 14.8 MB, less than 51.20% of Python online submissions for Reverse Linked List.
         """
+
+        prev = None
+        curr = head
+
+        while curr:
+            next = curr.next
+            curr.next = prev
+            prev = curr
+            curr = next
+
+        return prev
+
+
+    def reverseList(self, head: ListNode) -> ListNode:
+        if not head:
+            return head  # Empty.
+        if not head.next:
+            return head  # We reached end.
+        # Traverse to end, orig_head is now end node.
+        orig_head = self.reverseList(head.next)
+        head.next.next = head  # Swap head with right node.
+        head.next = None  # So we don't wind up in infinite loop.
+        return orig_head  # Very last thing returned. End node!
 
 
 if __name__ == "__main__":

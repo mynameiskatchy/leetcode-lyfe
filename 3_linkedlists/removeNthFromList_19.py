@@ -112,7 +112,8 @@ class Solution(object):
         fast = head
         slow = head
 
-        # move the fast pointer up n nodes ahead
+        # move the fast pointer up n nodes ahead so that slow pointer
+        # will end up n nodes behind the fast pointer
         for _ in range(n):
             fast = fast.next
         
